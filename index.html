@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O'zbek top gamerlar: jonli obunachilar</title>
+<style>
+:root{--bg:#fff;--card:rgba(244,244,246,.88);--fg:#0f0f0f;--mut:#606060;--red:#e60026;--up:#0a8f3c;--gold:#ffc83d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d12;--card:rgba(30,30,38,.88);--fg:#f1f1f1;--mut:#aaa;--up:#3ddc84}}
+:root[data-theme="dark"]{--bg:#0d0d12;--card:rgba(30,30,38,.88);--fg:#f1f1f1;--mut:#aaa;--up:#3ddc84}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,Arial,sans-serif}
+#bgimg{position:fixed;inset:0;z-index:-3;background-size:cover;background-position:center;opacity:.4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #bgimg{opacity:.85}}
+:root[data-theme="dark"] #bgimg{opacity:.85}
+body::before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gradient(circle at 15% 12%,rgba(230,0,38,.22),transparent 38%),radial-gradient(circle at 88% 28%,rgba(123,47,247,.22),transparent 38%),radial-gradient(circle at 28% 88%,rgba(0,198,255,.2),transparent 40%),radial-gradient(circle at 85% 90%,rgba(255,176,0,.16),transparent 35%);animation:bgm 20s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background-image:radial-gradient(rgba(128,128,128,.28) 1px,transparent 1.5px);background-size:22px 22px;opacity:.5;pointer-events:none}
+@keyframes bgm{to{transform:translate(4%,3%) scale(1.12) rotate(4deg)}}
+main{max-width:640px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+h1{margin:0;font-size:clamp(20px,5.5vw,28px);line-height:1.15}
+h2{margin:0 0 8px;font-size:18px}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--red);font-weight:700;font-size:13px}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--red);animation:p 1.4s infinite}
+@keyframes p{50%{opacity:.25}}
+#st{color:var(--mut);font-size:13px;margin:0 0 14px;min-height:18px}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.row{position:relative;display:flex;align-items:center;gap:12px;background:var(--card);backdrop-filter:blur(6px);border-radius:16px;padding:12px;text-decoration:none;color:inherit;border-left:4px solid transparent;transition:transform .2s}
+.row:hover{transform:translateX(3px)}
+li:nth-child(1)>.row{border-left-color:#ffc83d}
+li:nth-child(2)>.row{border-left-color:#c0c7d0}
+li:nth-child(3)>.row{border-left-color:#cd7f32}
+.rk{width:26px;text-align:center;font-weight:700;font-size:20px;color:var(--mut)}
+#list li:first-child .rk{color:var(--red);font-size:26px}
+.row img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#888;flex:none}
+.nm{flex:1;min-width:0}
+.nm b{display:block;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm small,.d{color:var(--mut);font-size:13px}
+.gap{display:block;font-style:normal;font-size:12px;color:var(--mut);margin-top:2px}
+.mv{font-weight:700;font-size:12px;padding:1px 6px;border-radius:8px}
+.mv.u{color:var(--up);background:rgba(10,143,60,.14)}
+.mv.dn{color:var(--red);background:rgba(230,0,38,.12)}
+.sb{text-align:right}
+.sb .n{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;display:block}
+.d{display:block;min-height:16px;color:var(--up);font-weight:700}
+button,.btn{font:inherit;background:var(--fg);color:var(--bg);border:0;border-radius:20px;padding:9px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--red)}
+dialog{border:0;border-radius:18px;background:var(--bg);color:var(--fg);width:min(92vw,460px);padding:18px;max-height:90vh;overflow:auto}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+label{display:block;font-weight:700;margin:12px 0 4px}
+input[type=text],input[type=password],textarea{width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--mut);background:var(--card);color:var(--fg)}
+textarea{height:110px}
+.chk{display:flex;gap:8px;align-items:center;font-weight:400;margin-top:12px}
+.hint{color:var(--mut);font-size:13px;margin:4px 0 0;line-height:1.4}
+.foot{color:var(--mut);font-size:12px;margin-top:16px;line-height:1.4}
+.next{margin-top:22px;padding:14px;border-radius:16px;background:var(--card);font-size:13px;line-height:1.5;color:var(--mut);border:1px dashed var(--mut)}
+.next b{color:var(--fg)}
+
+/* ---------- Bo'limlar (tablar) ---------- */
+.tabs{display:flex;gap:8px;margin:10px 0 14px}
+.tabs button{flex:1;background:var(--card);color:var(--fg);border:1px solid rgba(128,128,128,.4);backdrop-filter:blur(6px);font-weight:700}
+.tabs button.on{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* ---------- VIP ---------- */
+.vipbox{margin:0 0 22px}
+.vipbox h2{color:#b8860b;text-shadow:0 0 12px rgba(255,200,60,.5)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vipbox h2{color:#ffd24a}}
+:root[data-theme="dark"] .vipbox h2{color:#ffd24a}
+.row.vip{border:1px solid #ffd24a;border-left-width:4px;box-shadow:0 0 18px rgba(255,200,60,.55),inset 0 0 22px rgba(255,200,60,.12);background:linear-gradient(120deg,rgba(255,210,74,.2),var(--card) 55%)}
+.vipbadge{position:absolute;top:-9px;right:12px;padding:2px 10px;border-radius:9px;font-weight:900;font-size:12px;letter-spacing:.14em;color:#3a2600;background:linear-gradient(110deg,#b8860b,#ffe27a,#fff7c2,#ffd24a,#b8860b);background-size:250% 100%;animation:shine 2.2s linear infinite;box-shadow:0 0 12px 3px rgba(255,200,60,.8);text-shadow:0 1px 0 rgba(255,255,255,.6)}
+@keyframes shine{to{background-position:-250% 0}}
+.vipempty{padding:14px;border-radius:16px;background:var(--card);border:1px dashed #ffd24a;font-size:14px;line-height:1.5;color:var(--mut)}
+.vipempty button{margin-top:8px;background:linear-gradient(110deg,#b8860b,#ffe27a,#ffd24a);color:#3a2600;font-weight:700}
+
+/* ---------- 2-bo'lim ---------- */
+.tot{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px;margin-bottom:14px}
+.tot div{background:var(--card);border-radius:14px;padding:10px 4px;text-align:center;backdrop-filter:blur(6px)}
+.tot b{display:block;font-size:clamp(15px,4.4vw,19px);font-variant-numeric:tabular-nums}
+.tot span{font-size:12px;color:var(--mut)}
+.card2{background:var(--card);backdrop-filter:blur(6px);border-radius:18px;padding:14px;margin-bottom:14px}
+.card2 .fr{display:flex;gap:8px;margin-top:6px}
+.card2 .fr input{flex:1;min-width:0}
+.vipcard{border:1px solid #ffd24a;box-shadow:0 0 16px rgba(255,200,60,.35)}
+.price{font-size:22px;font-weight:800;color:#b8860b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .price{color:#ffd24a}}
+:root[data-theme="dark"] .price{color:#ffd24a}
+.gold{background:linear-gradient(110deg,#b8860b,#ffe27a,#ffd24a);color:#3a2600;font-weight:700}
+.msg{font-size:13px;margin:8px 0 0;min-height:16px}
+.cardnum{font-size:22px;font-weight:800;letter-spacing:.06em;font-variant-numeric:tabular-nums;word-break:break-all;margin:6px 0}
+.app{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px;border-radius:12px;background:var(--card);margin-top:8px;font-size:14px}
+.app.ok{border-left:4px solid var(--up)}.app.no{border-left:4px solid var(--red)}.app.pending{border-left:4px solid var(--gold)}
+.ab{display:flex;gap:6px;flex:none}
+.okb{background:#0a8f3c;color:#fff;padding:7px 12px}.nob{background:#e60026;color:#fff;padding:7px 12px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--card);border-radius:14px;padding:4px 6px 4px 10px;margin:4px 4px 0 0;font-size:13px}
+.chip button{padding:0 6px;background:none;color:var(--red);font-weight:700}
+.myapp{font-size:13px;margin-top:6px}
+
+/* ---------- Hafta kanali banneri ---------- */
+.ad{position:relative;overflow:hidden;border-radius:22px;padding:18px;margin:0 0 22px;color:#fff;box-shadow:0 10px 30px rgba(123,47,247,.35);animation:pop .7s cubic-bezier(.2,1.4,.4,1)}
+.ad[hidden]{display:none}
+@keyframes pop{from{transform:scale(.9) translateY(14px);opacity:0}}
+.ad-bg{position:absolute;inset:0;background:linear-gradient(120deg,#ff0f7b,#f89b29,#7b2ff7,#00c6ff,#00e676,#ff0f7b);background-size:400% 400%;animation:gr 9s ease infinite}
+@keyframes gr{50%{background-position:100% 50%}}
+.ad>*:not(.ad-bg):not(.pt){position:relative}
+.pt{position:absolute;bottom:-30px;opacity:0;font-size:20px;animation:fl 7s linear infinite;pointer-events:none}
+@keyframes fl{10%{opacity:.9}100%{transform:translateY(-300px) rotate(40deg);opacity:0}}
+.ad-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 11px;border-radius:20px;background:rgba(0,0,0,.45);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 0 6px rgba(255,255,255,.18)}}
+.ad-main{display:flex;align-items:center;gap:16px;margin:14px 0}
+.ring{position:relative;width:88px;height:88px;flex:none}
+.ring::before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(#fff,#ffd54a,#ff4d8d,#4dd0ff,#69f0ae,#fff);animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring img{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #111;background:#444}
+.ad-name{margin:0;font-size:clamp(20px,6vw,26px);line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.4);word-break:break-word}
+.ad small{opacity:.92}
+.ad-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.ad-stats div{background:rgba(0,0,0,.38);border-radius:14px;padding:10px 4px;text-align:center;backdrop-filter:blur(4px)}
+.ad-stats b{display:block;font-size:clamp(15px,4.6vw,19px);font-variant-numeric:tabular-nums}
+.ad-stats span{font-size:12px;opacity:.9}
+.adv{background:rgba(0,0,0,.4);border-left:4px solid #ffd54a;border-radius:12px;padding:12px 14px;line-height:1.45;min-height:72px;transition:opacity .35s,transform .35s}
+.adv.out{opacity:0;transform:translateY(6px)}
+.cd{font-weight:700;margin:12px 0;font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 15px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,.3);transition:transform .2s}
+.lk:hover{transform:translateY(-3px) scale(1.04)}
+.lk.yt{background:#e60026}.lk.tg{background:#229ed9}.lk.tk{background:#111;border:1px solid #fff}.lk.web{background:#7b2ff7}
+.lk.ig{background:linear-gradient(45deg,#f9a825,#e1306c,#833ab4)}
+@media (prefers-reduced-motion:reduce){.live i,.ad,.ad-bg,.ad-tag,.ring::before,.pt,body::before,.vipbadge{animation:none}.adv{transition:none}.row{transition:none}}
+</style></head><body>
+<div id="bgimg" aria-hidden="true"></div>
+<main>
+<header><div><h1>O'zbek top gamerlar</h1><span class="live"><i></i>JONLI</span></div><button id="open">Sozlamalar</button></header>
+<nav class="tabs"><button id="t1" class="on" type="button">🏆 1-bo'lim</button><button id="t2" type="button">📊 2-bo'lim</button></nav>
+
+<!-- ================= 1-BO'LIM ================= -->
+<div id="s1">
+<p id="st">Yuklanmoqda…</p>
+
+<section class="vipbox" id="vipbox">
+<h2>👑 VIP kanallar</h2>
+<ol id="vlist"></ol>
+<div class="vipempty" id="vempty" hidden>Hozircha VIP kanal yo'q. 1 kunlik VIP olib, eng tepada oltindek porlab turing!<br><button type="button" data-go="2">VIP olish</button></div>
+</section>
+
+<section class="ad" id="ad" hidden aria-live="polite">
+<div class="ad-bg"></div>
+<span class="pt" style="left:8%;animation-delay:0s">🎮</span><span class="pt" style="left:24%;animation-delay:1.4s">⭐</span><span class="pt" style="left:42%;animation-delay:3s">✨</span><span class="pt" style="left:60%;animation-delay:.8s">🔥</span><span class="pt" style="left:76%;animation-delay:2.2s">🏆</span><span class="pt" style="left:90%;animation-delay:4s">🎯</span>
+<span class="ad-tag">⭐ HAFTA KANALI · REKLAMA</span>
+<div class="ad-main"><div class="ring"><img id="adImg" alt=""></div><div><h2 class="ad-name" id="adName">…</h2><small id="adH"></small></div></div>
+<div class="ad-stats"><div><b id="adS">0</b><span>Obunachi</span></div><div><b id="adV">0</b><span>Video</span></div><div><b id="adW">0</b><span>Ko'rish</span></div></div>
+<div class="adv" id="adAdv"></div>
+<div class="cd" id="adCd"></div>
+<div class="links" id="adLinks"></div>
+</section>
+
+<ol id="list"></ol>
+<div class="next" id="next"></div>
+<p class="foot">Ma'lumot YouTube'dan har 30 soniyada yangilanadi. YouTube obunachi sonini yaxlitlab beradi (masalan, 77.1 ming), shuning uchun o'zgarish pog'ona bilan ko'rinadi.</p>
+</div>
+
+<!-- ================= 2-BO'LIM ================= -->
+<div id="s2" hidden>
+<h2>📊 Umumiy statistika</h2>
+<div class="tot" id="tot"></div>
+
+<div class="card2">
+<h2>➕ Shaxsiy kanalni qo'shish</h2>
+<div class="fr"><input id="myh" type="text" autocomplete="off" placeholder="@kanalnomi"><button id="addmy" type="button">Qo'shish</button></div>
+<p class="msg" id="mymsg"></p>
+<p class="hint">Kanalingiz @handle'ini yozing. U pastdagi umumiy statistikaga qo'shiladi.</p>
+</div>
+
+<div class="card2 vipcard">
+<h2>👑 VIP obuna</h2>
+<p style="margin:0 0 6px">1 kunlik obuna: <span class="price" id="price">5 000 so'm</span></p>
+<p class="hint">To'lov qabul qilingach kanalingiz 1 kun davomida eng tepada, chetida oltindek porlab turgan <b>VIP</b> yozuvi bilan chiqadi. Navbat bo'lsa, tartib bilan turadi.</p>
+<div class="fr"><input id="vh" type="text" autocomplete="off" placeholder="@kanalnomi"><button id="pay" type="button" class="gold">To'lov qilish</button></div>
+<p class="msg" id="vmsg"></p>
+<div id="myapps"></div>
+</div>
+
+<h2>Barcha kanallar statistikasi</h2>
+<ol id="all"></ol>
+</div>
+</main>
+
+<!-- To'lov oynasi -->
+<dialog id="paydlg">
+<h2 style="margin:0 0 4px">💳 To'lov qilish</h2>
+<p style="margin:6px 0">Kanal: <b id="pyh"></b></p>
+<p style="margin:6px 0">Summa: <b class="price" id="pyp">5 000 so'm</b> (1 kun)</p>
+<p class="hint" style="margin-top:10px">Quyidagi kartaga pul o'tkazing:</p>
+<div class="cardnum" id="pcard"></div>
+<p class="hint" id="pholder"></p>
+<button type="button" id="pcopy" style="margin-top:6px">Karta raqamini nusxalash</button>
+<label for="pnote">To'lovchi ismi yoki karta oxirgi 4 raqami</label>
+<input id="pnote" type="text" autocomplete="off" placeholder="Masalan: Ali, 4417">
+<p class="msg" id="pmsg"></p>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button id="pcancel" type="button" style="background:var(--card);color:var(--fg)">Bekor</button><button id="psend" type="button" class="gold">To'lov qildim, ariza yuborish</button></div>
+</dialog>
+
+<!-- Egasi PIN -->
+<dialog id="pdlg">
+<h2 style="margin:0 0 4px">🔒 Egasi kirishi</h2>
+<p class="hint" id="pinmsg"></p>
+<input id="pin" type="password" autocomplete="off" placeholder="PIN-kod">
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button id="pincancel" type="button" style="background:var(--card);color:var(--fg)">Bekor</button><button id="pinok" type="button">Kirish</button></div>
+</dialog>
+
+<!-- Sozlamalar -->
+<dialog id="dlg">
+<h2 style="margin:0 0 4px">Sozlamalar</h2>
+<label for="key">YouTube API kalit</label>
+<input id="key" type="text" autocomplete="off" placeholder="AIza...">
+<p class="hint">Google Cloud'dan bepul olinadi (YouTube Data API v3).</p>
+<label for="hs">Top gamerlar (har qatorda bittadan @handle)</label>
+<textarea id="hs" placeholder="@kanalnomi"></textarea>
+<p class="hint">Eng ko'pi bilan 30 ta. Tartib avtomatik tuziladi.</p>
+<label for="cs">Hafta kanali nomzodlari</label>
+<textarea id="cs" placeholder="@kanalnomi | https://t.me/... | https://instagram.com/..."></textarea>
+<p class="hint">Har qatorda bittadan. Kanal o'z havolalarini "|" bilan ajratib yozadi (Telegram, Instagram, TikTok, sayt). Har oy shulardan bittasi tasodifiy tanlanadi va oyning 1–7 kunlari tepada alohida chiqadi.</p>
+<label class="chk"><input type="checkbox" id="pv"> Bannerni hozir ko'rsatish (sinov uchun)</label>
+
+<h2 style="margin:20px 0 0">💳 To'lov kartasi</h2>
+<label for="card">Karta raqami</label>
+<input id="card" type="text" inputmode="numeric" autocomplete="off" placeholder="8600 0000 0000 0000">
+<label for="holder">Karta egasi ismi</label>
+<input id="holder" type="text" autocomplete="off" placeholder="ALI VALIYEV">
+<p class="hint">To'lov oynasida foydalanuvchilarga shu karta ko'rsatiladi.</p>
+
+<h2 style="margin:20px 0 0">📥 To'lov arizalari (faqat sizga)</h2>
+<div id="apps"></div>
+<h2 style="margin:20px 0 0">Foydalanuvchilar qo'shgan kanallar</h2>
+<div id="chl"></div>
+
+<h2 style="margin:20px 0 0">Qo'shimcha</h2>
+<label for="bg">Orqa fon rasmi (havola, ixtiyoriy)</label>
+<input id="bg" type="text" autocomplete="off" placeholder="https://...jpg">
+<p class="hint">Bo'sh qoldirsangiz, tayyor gaming-fon chiqadi.</p>
+<label for="api">Server manzili (ixtiyoriy)</label>
+<input id="api" type="text" autocomplete="off" placeholder="https://saytingiz.uz">
+<p class="hint">Bo'sh bo'lsa hammasi shu brauzerda saqlanadi. Hamma foydalanuvchi arizalari sizga kelishi uchun server.js'ni ishga tushiring.</p>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button id="cancel" type="button" style="background:var(--card);color:var(--fg)">Bekor</button><button id="save" type="button">Saqlash</button></div>
+</dialog>
+
+<script>
+const $=s=>document.querySelector(s);
+const MONTHS=['Yanvar','Fevral','Mart','Aprel','May','Iyun','Iyul','Avgust','Sentyabr','Oktyabr','Noyabr','Dekabr'];
+const DEF=['@megatrend707','@kvadratniymapper','@specoolar','@ibogaming'];
+const PRICE=5000,DAY=864e5,HRE=/^@[\w.\-]{3,40}$/;
+let cfg={key:'',handles:DEF.slice(),cands:DEF.slice(),ids:{},preview:false,api:'',bg:'',mine:'',myApps:[]};
+try{Object.assign(cfg,JSON.parse(localStorage.getItem('uzg')||'{}'))}catch(e){}
+if(!Array.isArray(cfg.cands)||!cfg.cands.length)cfg.cands=cfg.handles.slice();
+if(!Array.isArray(cfg.myApps))cfg.myApps=[];
+const save=()=>{try{localStorage.setItem('uzg',JSON.stringify(cfg))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const base={},prev={},lastRank={},changes={},els={};let busy=false,spot=null,lastAdv=-1;
+let S={card:'',holder:'',hasPin:false,chans:[],vip:[]},vipSet=new Set(),PIN='',payH='';
+
+/* ---------- Orqa fon rasmi ---------- */
+const stars=Array.from({length:70},(_,i)=>`<circle cx="${(i*337)%800}" cy="${(i*211)%520}" r="${((i%3)+.8)*.6}" fill="#fff" opacity="${.4+(i%5)/10}"/>`).join('');
+const vl=Array.from({length:21},(_,k)=>`<line x1="400" y1="640" x2="${400+(k-10)*120}" y2="1000" stroke="#ff4fd8" stroke-width="1.5" opacity=".7"/>`).join('');
+const hl=Array.from({length:9},(_,k)=>`<line x1="0" x2="800" y1="${640+(k+1)*(k+1)*4.5}" y2="${640+(k+1)*(k+1)*4.5}" stroke="#4dd0ff" stroke-width="1.5" opacity=".6"/>`).join('');
+const BGSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0220"/><stop offset=".55" stop-color="#3b0a6b"/><stop offset="1" stop-color="#ff2e88"/></linearGradient><linearGradient id="u" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe14a"/><stop offset="1" stop-color="#ff2e88"/></linearGradient></defs><rect width="800" height="1000" fill="url(#s)"/>${stars}<circle cx="400" cy="560" r="170" fill="url(#u)"/><path d="M0 640 L120 540 L200 610 L300 500 L400 620 L520 520 L620 600 L700 530 L800 620 V680 H0Z" fill="#1a0638"/><rect y="640" width="800" height="360" fill="#12032b"/>${vl}${hl}</svg>`;
+const BG='data:image/svg+xml;utf8,'+encodeURIComponent(BGSVG);
+function applyBg(){const u=okUrl(cfg.bg)?cfg.bg:BG;$('#bgimg').style.backgroundImage='url('+JSON.stringify(u)+')'}
+
+/* ---------- Server qatlami (server.js yoki brauzer) ---------- */
+const normH=s=>{s=(s||'').trim().replace(/\s+/g,'');return s?(s[0]==='@'?s:'@'+s):''};
+const apiBase=()=>(cfg.api||window.UZG_API||'').replace(/\/$/,'');
+const LS='uzg_srv';
+function loadSrv(){const s={card:'',holder:'',pin:'',apps:[],chans:[],key:'',handles:null,cands:null};try{Object.assign(s,JSON.parse(localStorage.getItem(LS)||'{}'))}catch(e){}return s}
+function saveSrv(s){try{localStorage.setItem(LS,JSON.stringify(s))}catch(e){}}
+function vipList(s){const n=Date.now();return s.apps.filter(a=>a.status==='ok'&&a.until>n).sort((a,b)=>a.okAt-b.okAt).map(a=>({h:a.h,until:a.until}))}
+function run(s,act,d){
+const need=()=>{if(!s.pin||d.pin!==s.pin)throw new Error("PIN noto'g'ri")};
+const hh=()=>{const h=normH(d.h).toLowerCase();if(!HRE.test(h))throw new Error("Kanal @handle noto'g'ri");return h};
+switch(act){
+case 'state':return{card:s.card,holder:s.holder,hasPin:!!s.pin,key:s.key,handles:s.handles,cands:s.cands,chans:s.chans,vip:vipList(s)};
+case 'addChan':{const h=hh();if(!s.chans.includes(h))s.chans.push(h);if(s.chans.length>200)s.chans.shift();return{ok:1}}
+case 'apply':{const h=hh();const a={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),h,note:String(d.note||'').slice(0,120),ts:Date.now(),status:'pending'};s.apps.push(a);if(s.apps.length>1000)s.apps.shift();return{id:a.id}}
+case 'status':return{st:s.apps.filter(a=>(d.ids||[]).includes(a.id)).map(a=>({id:a.id,h:a.h,status:a.status,until:a.until}))};
+case 'auth':need();return{ok:1};
+case 'setPin':if(s.pin)throw new Error('PIN allaqachon o\'rnatilgan');if(String(d.pin||'').length<4)throw new Error('PIN kamida 4 belgi bo\'lsin');s.pin=String(d.pin);return{ok:1};
+case 'apps':need();return{apps:s.apps.slice().reverse(),chans:s.chans};
+case 'decide':{need();const a=s.apps.find(x=>x.id===d.id);if(!a)throw new Error('Ariza topilmadi');if(a.status!=='pending')throw new Error('Ariza ko\'rib chiqilgan');
+if(d.ok){const last=Math.max(Date.now(),...s.apps.filter(x=>x!==a&&x.h===a.h&&x.status==='ok').map(x=>x.until||0));a.status='ok';a.until=last+DAY;a.okAt=Date.now();if(!s.chans.includes(a.h))s.chans.push(a.h)}else a.status='no';return{ok:1}}
+case 'rmChan':need();s.chans=s.chans.filter(x=>x!==d.h);return{ok:1};
+case 'settings':need();['card','holder','key'].forEach(k=>{if(typeof d[k]==='string')s[k]=d[k].trim().slice(0,200)});if(Array.isArray(d.handles))s.handles=d.handles.slice(0,30).map(String);if(Array.isArray(d.cands))s.cands=d.cands.slice(0,200).map(String);return{ok:1};
+}
+throw new Error('Noma\'lum amal')}
+async function rpc(act,d={}){
+if(apiBase()){const r=await fetch(apiBase()+'/rpc',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({act,d})});const j=await r.json();if(j.error)throw new Error(j.error);return j}
+const s=loadSrv();const res=run(s,act,d);saveSrv(s);return res}
+async function sync(){try{S=await rpc('state');
+if(apiBase()){if(S.key)cfg.key=S.key;if(Array.isArray(S.handles))cfg.handles=S.handles;if(Array.isArray(S.cands)&&S.cands.length)cfg.cands=S.cands}}catch(e){}}
+
+/* ---------- Nomzodlar ---------- */
+function okUrl(u){try{const x=new URL(u);return /^https?:$/.test(x.protocol)}catch(e){return false}}
+function parseCand(line){const p=line.split('|').map(s=>s.trim());return{h:normH(p[0]),links:p.slice(1).filter(okUrl)}}
+function pickFeatured(){
+const pool=cfg.cands.map(parseCand).filter(c=>c.h).sort((a,b)=>a.h.localeCompare(b.h));if(!pool.length)return null;
+const d=new Date();let h=Math.imul(d.getFullYear()*12+d.getMonth()+1,2654435761)>>>0;
+h^=h>>>13;h=Math.imul(h,1274126177)>>>0;h^=h>>>16;return pool[h%pool.length]}
+const pinnedNow=()=>new Date().getDate()<=7;
+const adVisible=()=>pinnedNow()||cfg.preview;
+function linkKind(u){const h=new URL(u).hostname.replace('www.','');
+if(/youtu/.test(h))return['YouTube','yt'];if(/t\.me|telegram/.test(h))return['Telegram','tg'];
+if(/instagram/.test(h))return['Instagram','ig'];if(/tiktok/.test(h))return['TikTok','tk'];return[h,'web']}
+
+/* ---------- API ---------- */
+async function call(q){const r=await fetch('https://www.googleapis.com/youtube/v3/channels?'+q+'&key='+encodeURIComponent(cfg.key));const j=await r.json();if(j.error)throw new Error(j.error.message);return j.items||[]}
+function tween(el,a,b){const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/900);el.textContent=fmt(a+(b-a)*k);if(k<1)requestAnimationFrame(f)})(t0)}
+function setNum(el,v){const p=el.dataset.v===undefined?undefined:+el.dataset.v;
+if(reduce)el.textContent=fmt(v);else if(p===undefined)tween(el,0,v);else if(p!==v)tween(el,p,v);else el.textContent=fmt(v);
+el.dataset.v=v}
+
+/* ---------- Top gamerlar ---------- */
+const TPL='<a class="row" target="_blank" rel="noopener"><span class="vipbadge" hidden>VIP</span><span class="rk"></span><img alt=""><div class="nm"><b></b><small></small><em class="gap"></em></div><div class="sb"><span class="n"></span><span class="d"></span></div></a>';
+function render(rows,fireId){
+const ol=$('#list'),first={};
+for(const id in els)first[id]=els[id].getBoundingClientRect().top;
+const keep=new Set(rows.map(r=>r.id));
+for(const id in els)if(!keep.has(id)){els[id].remove();delete els[id]}
+rows.forEach((r,i)=>{
+let li=els[r.id];if(!li){li=document.createElement('li');li.innerHTML=TPL;els[r.id]=li}
+if(lastRank[r.id]!==undefined&&lastRank[r.id]!==i)changes[r.id]={n:lastRank[r.id]-i,t:Date.now()};
+lastRank[r.id]=i;
+const ch=changes[r.id],showCh=ch&&Date.now()-ch.t<300000;
+const a=li.querySelector('a'),isV=vipSet.has(r.h.toLowerCase());
+a.href='https://www.youtube.com/'+r.h;a.classList.toggle('vip',isV);li.querySelector('.vipbadge').hidden=!isV;
+li.querySelector('.rk').textContent=i+1;
+const im=li.querySelector('img');if(im.dataset.u!==r.img){im.dataset.u=r.img;im.src=r.img;im.style.visibility='visible';im.onerror=()=>{im.style.visibility='hidden'}}
+li.querySelector('b').textContent=r.name+(r.id===fireId?' 🔥':'');
+li.querySelector('small').innerHTML=esc(r.h)+(showCh?` <span class="mv ${ch.n>0?'u':'dn'}">${ch.n>0?'↑':'↓'} ${Math.abs(ch.n)}</span>`:'');
+li.querySelector('.gap').textContent=r.gap>0?`Oldingisidan ${fmt(r.gap)} ta orqada`:'';
+const n=li.querySelector('.n');
+if(prev[r.id]!==undefined&&prev[r.id]!==r.subs)tween(n,prev[r.id],r.subs);else n.textContent=fmt(r.subs);
+prev[r.id]=r.subs;
+const d=r.subs-base[r.id];li.querySelector('.d').textContent=d>0?'+'+fmt(d):'';
+ol.appendChild(li)});
+if(!reduce)rows.forEach(r=>{const li=els[r.id],dy=first[r.id]-li.getBoundingClientRect().top;if(first[r.id]!==undefined&&Math.abs(dy)>1)li.animate([{transform:`translateY(${dy}px)`},{transform:'none'}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'})})}
+
+/* ---------- VIP ro'yxat va 2-bo'lim ---------- */
+function rowHTML(r,rank,extra){
+return `<li><a class="row${r.vip?' vip':''}" href="https://www.youtube.com/${esc(r.h)}" target="_blank" rel="noopener">${r.vip?'<span class="vipbadge">VIP</span>':''}<span class="rk">${rank}</span><img src="${esc(r.img)}" alt=""><div class="nm"><b>${esc(r.name)}</b><small>${esc(r.h)}</small>${extra||''}</div><div class="sb"><span class="n">${fmt(r.subs)}</span><span class="d" style="color:var(--mut);font-weight:400">${fmt(r.views)} ko'rish</span></div></a></li>`}
+function renderVip(all2){
+const rows=S.vip.map(v=>{const r=all2.find(x=>x.h.toLowerCase()===v.h.toLowerCase());return r?{...r,vip:1,until:v.until}:null}).filter(Boolean);
+$('#vlist').innerHTML=rows.map(r=>rowHTML(r,'👑',`<em class="gap">⏳ ${Math.max(1,Math.ceil((r.until-Date.now())/36e5))} soat qoldi</em>`)).join('');
+$('#vempty').hidden=rows.length>0;return rows}
+function renderS2(all2,vipRows){
+const t=all2.reduce((a,r)=>({s:a.s+r.subs,v:a.v+r.v,w:a.w+r.views}),{s:0,v:0,w:0});
+$('#tot').innerHTML=[['Kanallar',all2.length],['Obunachi',fmt(t.s)],['Video',fmt(t.v)],["Ko'rish",fmt(t.w)],['VIP',vipRows.length]].map(([k,v])=>`<div><b>${v}</b><span>${k}</span></div>`).join('');
+const sorted=all2.slice().sort((a,b)=>b.subs-a.subs);
+$('#all').innerHTML=sorted.map((r,i)=>rowHTML({...r,vip:vipSet.has(r.h.toLowerCase())},i+1)).join('')}
+async function myStatus(){
+const box=$('#myapps'),ids=cfg.myApps.slice(-10);if(!ids.length){box.innerHTML='';return}
+try{const r=await rpc('status',{ids});
+box.innerHTML=r.st.length?'<p class="hint"><b>Mening arizalarim:</b></p>'+r.st.map(a=>{
+let t='Kutilmoqda ⏳';
+if(a.status==='ok')t=a.until>Date.now()?`VIP faol ✅ (${Math.max(1,Math.ceil((a.until-Date.now())/36e5))} soat qoldi)`:'Muddati tugagan';
+if(a.status==='no')t='Rad etildi ❌';
+return `<div class="myapp"><b>${esc(a.h)}</b> · ${t}</div>`}).join(''):''}catch(e){}}
+
+/* ---------- Maslahatlar (har safar boshqacha) ---------- */
+function milestone(n){const p=Math.pow(10,Math.floor(Math.log10(Math.max(n,1))));for(const m of [1,2,5,10]){if(m*p>n)return m*p}return 10*p}
+function advices(s){
+const avg=s.v?s.views/s.v:0,pm=s.v/Math.max(s.months,1),nx=milestone(s.subs),L=[];
+L.push(`Kanalda ${fmt(s.v)} ta video bor va har biri o'rtacha ${fmt(avg)} marta ko'rilgan. Eng yaxshi ishlagan videoning davomini chiqarsa, yana yaxshi natija beradi.`);
+L.push(`Keyingi marra: ${fmt(nx)} obunachi. Yana ${fmt(nx-s.subs)} ta qoldi. Tomoshabinlarga aniq maqsadni aytib, ularni jalb qilish mumkin.`);
+if(pm<4)L.push(`Taxminan oyiga ${pm.toFixed(1)} ta video chiqyapti. Haftasiga kamida 1 ta chiqarilsa, algoritm kanalni tez-tez tavsiya qiladi.`);
+else L.push(`Oyiga taxminan ${pm.toFixed(1)} ta video, bu yaxshi sur'at. Asosiysi izchillik: video chiqarish kunini doim bir xil qilish.`);
+if(avg<s.subs*0.1)L.push(`Videolar obunachilarning kichik qismiga yetyapti. Miniatyurani yorqinroq qilib, birinchi 10 soniyada eng qiziq joyni ko'rsatish kerak.`);
+else L.push(`Videolar obunachilarga yaxshi yetib boryapti. Endi yangi tomoshabinlar uchun qisqa videolar (Shorts) sinab ko'rsa bo'ladi.`);
+if(s.subs/Math.max(s.v,1)>500)L.push(`Har bir video o'rtacha ${fmt(s.subs/Math.max(s.v,1))} obunachi olib kelgan. Shu formatni ko'proq takrorlash foydali.`);
+L.push(`Sarlavhada raqam yoki savol ishlating, masalan "5 ta xato" yoki "Nega yutqazdim?". Bunday sarlavhalar ko'proq bosiladi.`);
+L.push(`Izohlarga birinchi soatda javob berish tomoshabinlarni kanalga bog'laydi va videoni yuqoriga ko'taradi.`);
+L.push(`Har videoda "obuna bo'ling" deb faqat bir marta, aniq sabab bilan aytish yaxshi: "keyingi videoda yangi o'yin, o'tkazib yuborma".`);
+L.push(`O'ziga o'xshash kattaroq kanallar bilan hamkorlikda stream yoki video qilish obunachilarni bir-biriga o'tkazadi.`);
+L.push(`Tovush sifatiga e'tibor bering. Tomoshabin tasvir yomon bo'lsa chidaydi, tovush yomon bo'lsa darrov chiqib ketadi.`);
+L.push(`Kanal tavsifi va banneriga nima haqida ekani va qachon video chiqishini yozib qo'yish kerak. Yangi mehmon shunga qarab obuna bo'ladi.`);
+L.push(`Video oxirida keyingi videoni taklif qilish kerak. Tomoshabin kanalda qancha ko'p qolsa, shuncha yaxshi.`);
+return L}
+function nextAdv(){
+const el=$('#adAdv');if(!spot||$('#ad').hidden)return;
+const L=advices(spot);let i;do{i=Math.floor(Math.random()*L.length)}while(i===lastAdv&&L.length>1);lastAdv=i;
+if(reduce||!el.textContent){el.textContent=L[i];return}
+el.classList.add('out');setTimeout(()=>{el.textContent=L[i];el.classList.remove('out')},350)}
+
+/* ---------- Hafta kanali banneri ---------- */
+function renderAd(row,cand){
+const ad=$('#ad');const show=adVisible()&&row;ad.hidden=!show;
+if(!show)return;
+if(ad.dataset.id!==row.id){ad.dataset.id=row.id;$('#adS').dataset.v='';delete $('#adS').dataset.v;delete $('#adV').dataset.v;delete $('#adW').dataset.v;
+$('#adImg').src=row.img;$('#adName').textContent=row.name;$('#adH').textContent=row.h;
+const L=[['YouTube','yt','https://www.youtube.com/'+row.h],...cand.links.map(u=>[...linkKind(u),u])];
+$('#adLinks').innerHTML=L.map(x=>`<a class="lk ${x[1]}" href="${esc(x[2])}" target="_blank" rel="noopener">${x[1]==='yt'?'▶ ':''}${esc(x[0])}</a>`).join('');
+$('#adAdv').textContent='';lastAdv=-1}
+setNum($('#adS'),row.subs);setNum($('#adV'),row.v);setNum($('#adW'),row.views);
+if(!$('#adAdv').textContent)nextAdv()}
+function cdTick(){
+const n=new Date();let t='';
+if(pinnedNow()){const e=new Date(n.getFullYear(),n.getMonth(),8)-n;t=`⏳ Tepada yana ${Math.floor(e/864e5)} kun ${Math.floor(e%864e5/36e5)} soat ${Math.floor(e%36e5/6e4)} daqiqa`}
+else{const e=new Date(n.getFullYear(),n.getMonth()+1,1)-n;t=`Keyingi Hafta kanali ${Math.ceil(e/864e5)} kundan keyin tanlanadi`}
+$('#adCd').textContent=pinnedNow()?t:'';
+$('#next').innerHTML=`<b>${MONTHS[n.getMonth()]} ${n.getFullYear()}</b>: har oy tasodifiy bitta kanal tanlanadi va oyning birinchi 7 kuni tepada alohida reklama bo'lib turadi. ${t.replace('⏳ ','')}.`}
+
+/* ---------- Asosiy tsikl ---------- */
+async function tick(){
+if(busy)return;busy=true;const miss=[];
+try{
+await sync();
+if(!cfg.key){$('#st').textContent=apiBase()?'Sayt egasi hali API kalit kiritmagan.':'Avval sozlamalarda API kalitni kiriting.';busy=false;return}
+const hs=cfg.handles.slice(0,30),fc=pickFeatured();
+const seen=new Set();
+const all=[...hs,...S.vip.map(v=>v.h),...S.chans.slice(-50),...(cfg.mine?[cfg.mine]:[]),...(fc?[fc.h]:[])].filter(h=>{const k=h.toLowerCase();if(seen.has(k))return false;seen.add(k);return true});
+for(const h of all){if(!cfg.ids[h]){const it=await call('part=id&forHandle='+encodeURIComponent(h));if(it[0])cfg.ids[h]=it[0].id;else miss.push(h)}}
+save();
+const map={};all.forEach(h=>{if(cfg.ids[h])map[cfg.ids[h]]=h});
+const ids=Object.keys(map);
+if(!ids.length)throw new Error('Kanal topilmadi. @handle ni tekshiring.');
+let items=[];for(let i=0;i<ids.length;i+=50)items=items.concat(await call('part=snippet,statistics&id='+ids.slice(i,i+50).join(',')));
+const all2=items.map(c=>({id:c.id,h:map[c.id],name:c.snippet.title,img:(c.snippet.thumbnails.medium||c.snippet.thumbnails.default).url,subs:+c.statistics.subscriberCount||0,v:+c.statistics.videoCount||0,views:+c.statistics.viewCount||0,born:c.snippet.publishedAt}));
+vipSet=new Set(S.vip.map(v=>v.h.toLowerCase()));
+const vipRows=renderVip(all2);
+const rows=all2.filter(r=>hs.includes(r.h)).sort((a,b)=>b.subs-a.subs);
+rows.forEach((r,i)=>{r.gap=i?rows[i-1].subs-r.subs:0;if(base[r.id]===undefined)base[r.id]=r.subs});
+let fireId=null,best=0;rows.forEach(r=>{const d=r.subs-base[r.id];if(d>best){best=d;fireId=r.id}});
+render(rows,fireId);
+renderS2(all2,vipRows);
+const fr=fc&&all2.find(r=>r.h.toLowerCase()===fc.h.toLowerCase());
+if(fr){spot={...fr,months:Math.max(1,(Date.now()-new Date(fr.born))/2629800000)}}else spot=null;
+renderAd(fr,fc);cdTick();myStatus();
+$('#st').textContent='Yangilandi: '+new Date().toLocaleTimeString('uz')+(miss.length?'  ·  Topilmadi: '+miss.join(', '):'');
+}catch(e){$('#st').textContent='Xato: '+e.message}
+busy=false}
+
+/* ---------- Bo'limlar ---------- */
+function go(n){$('#s1').hidden=n!==1;$('#s2').hidden=n!==2;$('#t1').classList.toggle('on',n===1);$('#t2').classList.toggle('on',n===2);window.scrollTo(0,0)}
+$('#t1').onclick=()=>go(1);$('#t2').onclick=()=>go(2);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)go(+b.dataset.go)});
+
+/* ---------- Shaxsiy kanal qo'shish ---------- */
+$('#addmy').onclick=async()=>{
+const h=normH($('#myh').value).toLowerCase(),m=$('#mymsg');
+if(!HRE.test(h)){m.textContent="@handle noto'g'ri. Masalan: @kanalnomi";return}
+try{await rpc('addChan',{h});cfg.mine=h;save();$('#vh').value=h;$('#myh').value='';m.textContent='✅ Qo\'shildi: '+h;await sync();tick()}catch(e){m.textContent=e.message}};
+
+/* ---------- To'lov ---------- */
+const pay=$('#paydlg');
+$('#pay').onclick=async()=>{
+const h=normH($('#vh').value||cfg.mine).toLowerCase(),m=$('#vmsg');
+if(!HRE.test(h)){m.textContent='Avval kanal @handle ni kiriting.';return}
+m.textContent='';payH=h;await sync();
+$('#pyh').textContent=h;$('#pyp').textContent=fmt(PRICE)+" so'm";
+$('#pcard').textContent=S.card||'Karta hali kiritilmagan';
+$('#pholder').textContent=S.holder?'Karta egasi: '+S.holder:'';
+$('#pcopy').hidden=!S.card;$('#pnote').value='';$('#pmsg').textContent='';pay.showModal()};
+$('#pcancel').onclick=()=>pay.close();
+$('#pcopy').onclick=async()=>{try{await navigator.clipboard.writeText(S.card.replace(/\s/g,''));$('#pmsg').textContent='✅ Nusxalandi'}catch(e){$('#pmsg').textContent='Nusxalab bo\'lmadi, qo\'lda yozing.'}};
+$('#psend').onclick=async()=>{
+if(!S.card){$('#pmsg').textContent='Karta hali kiritilmagan. Keyinroq urinib ko\'ring.';return}
+try{const r=await rpc('apply',{h:payH,note:$('#pnote').value});cfg.myApps.push(r.id);save();pay.close();$('#vmsg').textContent='✅ Ariza yuborildi. Egasi to\'lovni tekshirgach kanalingiz VIP bo\'ladi.';myStatus()}catch(e){$('#pmsg').textContent=e.message}};
+
+/* ---------- Sozlamalar (faqat egasi) ---------- */
+const dlg=$('#dlg'),pdlg=$('#pdlg');
+const lines=t=>t.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+async function loadApps(){
+try{const r=await rpc('apps',{pin:PIN});
+$('#apps').innerHTML=r.apps.length?r.apps.map(a=>`<div class="app ${a.status}"><div><b>${esc(a.h)}</b> · ${fmt(PRICE)} so'm<br><small>${esc(a.note||'—')} · ${new Date(a.ts).toLocaleString('uz')}</small></div>${a.status==='pending'?`<div class="ab"><button type="button" class="okb" data-id="${esc(a.id)}" data-ok="1">Qabul</button><button type="button" class="nob" data-id="${esc(a.id)}">Rad</button></div>`:`<span>${a.status==='ok'?'✅ '+new Date(a.until).toLocaleString('uz')+' gacha':'❌ Rad'}</span>`}</div>`).join(''):'<p class="hint">Hozircha ariza yo\'q.</p>';
+$('#chl').innerHTML=r.chans.map(h=>`<span class="chip">${esc(h)} <button type="button" data-rm="${esc(h)}" aria-label="O'chirish">✕</button></span>`).join('')||'<p class="hint">Hozircha yo\'q.</p>'}catch(e){$('#apps').textContent=e.message}}
+$('#apps').onclick=async e=>{const b=e.target.closest('button[data-id]');if(!b)return;b.disabled=true;
+try{await rpc('decide',{pin:PIN,id:b.dataset.id,ok:!!b.dataset.ok})}catch(err){alert(err.message)}
+await loadApps();await sync();tick()};
+$('#chl').onclick=async e=>{const b=e.target.closest('button[data-rm]');if(!b)return;
+try{await rpc('rmChan',{pin:PIN,h:b.dataset.rm})}catch(err){alert(err.message)}
+await loadApps();await sync();tick()};
+function openS(){$('#key').value=cfg.key;$('#hs').value=cfg.handles.join('\n');$('#cs').value=cfg.cands.join('\n');$('#pv').checked=!!cfg.preview;$('#bg').value=cfg.bg||'';$('#api').value=cfg.api||'';$('#card').value=S.card||'';$('#holder').value=S.holder||'';dlg.showModal();loadApps()}
+$('#open').onclick=async()=>{await sync();if(PIN){openS();return}
+$('#pinmsg').textContent=S.hasPin?'Sozlamalar faqat sayt egasi uchun. PIN-kodni kiriting.':'Birinchi marta: yangi PIN-kod o\'rnating (kamida 4 belgi). Uni eslab qoling.';
+$('#pin').value='';pdlg.showModal()};
+$('#pincancel').onclick=()=>pdlg.close();
+$('#pinok').onclick=async()=>{const p=$('#pin').value;
+try{if(!S.hasPin)await rpc('setPin',{pin:p});else await rpc('auth',{pin:p});PIN=p;pdlg.close();await sync();openS()}catch(e){$('#pinmsg').textContent=e.message}};
+$('#cancel').onclick=()=>dlg.close();
+$('#save').onclick=async()=>{cfg.key=$('#key').value.trim();
+cfg.handles=lines($('#hs').value).map(normH).filter(Boolean).slice(0,30);
+cfg.cands=lines($('#cs').value);if(!cfg.cands.length)cfg.cands=cfg.handles.slice();
+cfg.preview=$('#pv').checked;cfg.bg=$('#bg').value.trim();cfg.api=$('#api').value.trim();cfg.ids={};save();
+try{await rpc('settings',{pin:PIN,card:$('#card').value,holder:$('#holder').value,key:cfg.key,handles:cfg.handles,cands:cfg.cands})}catch(e){$('#st').textContent='Server: '+e.message}
+dlg.close();$('#ad').dataset.id='';applyBg();await sync();tick()};
+
+$('#vh').value=cfg.mine||'';
+setInterval(()=>{if(!document.hidden)tick()},30000);
+setInterval(()=>{if(!document.hidden)nextAdv()},9000);
+setInterval(cdTick,30000);
+applyBg();cdTick();tick();if(!cfg.key&&!apiBase())setTimeout(()=>$('#open').click(),300);
+</script></body></html>
